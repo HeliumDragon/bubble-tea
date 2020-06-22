@@ -9,7 +9,7 @@
     "isColdOnly": false,
     "isRecommended": true,
     "productImageThumb": "",
-    "productImageFull": "",
+    "productImageFile": "classic.svg",
     "allergenTag": [1, 3],
     "awardTag": []
   },
@@ -23,7 +23,7 @@
     "isColdOnly": false,
     "isRecommended": false,
     "productImageThumb": "",
-    "productImageFull": "",
+    "productImageFile": "cheese.svg",
     "allergenTag": [1, 3],
     "awardTag": []
   },
@@ -37,7 +37,7 @@
     "isColdOnly": true,
     "isRecommended": false,
     "productImageThumb": "",
-    "productImageFull": "",
+    "productImageFile": "lychee.svg",
     "allergenTag": [1],
     "awardTag": []
   },
@@ -51,7 +51,7 @@
     "isColdOnly": true,
     "isRecommended": false,
     "productImageThumb": "",
-    "productImageFull": "",
+    "productImageFile": "watermelon.svg",
     "allergenTag": [1],
     "awardTag": []
   },
@@ -65,21 +65,21 @@
     "isColdOnly": false,
     "isRecommended": true,
     "productImageThumb": "",
-    "productImageFull": "",
+    "productImageFile": "jasmine.svg",
     "allergenTag": [1, 3],
     "awardTag": []
   },
   {
     "id": "6",
-    "name": "Taro Milk Pearl",
+    "name": "Matcha Heaven",
     "price": 5.29,
     "category": 1,
-    "description": "Take time to savour the unique flavour of taro.",
+    "description": "Take time to savour the unique flavour of matcha.",
     "isAvailable": true,
     "isColdOnly": false,
     "isRecommended": false,
     "productImageThumb": "",
-    "productImageFull": "",
+    "productImageFile": "matcha.svg",
     "allergenTag": [1, 3],
     "awardTag": []
   },
@@ -93,7 +93,7 @@
     "isColdOnly": true,
     "isRecommended": false,
     "productImageThumb": "",
-    "productImageFull": "",
+    "productImageFile": "rainbow.svg",
     "allergenTag": [1],
     "awardTag": []
   }

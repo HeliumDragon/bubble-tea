@@ -2,13 +2,13 @@
   <section class="hero">
     <img
       class="brand-logo mb-32"
-      src="../assets/brand.svg"
+      src="@/assets/brand.svg"
       alt="buddha tea brand logo"
     />
 
     <button>Seek Tea Enlightenment</button>
-  </section> </template
->>
+  </section>
+</template>
 
 <script>
 export default {
@@ -25,7 +25,7 @@ export default {
   flex-direction: column;
   width: 100%;
   height: 95vh;
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
   overflow: hidden;
 }
@@ -36,7 +36,7 @@ export default {
 
 button {
   display: inline-block;
-  background: #ff1393;
+  background: #ffb6a1;
   border-radius: 25px;
   border: none;
   padding: 0.75rem 1.5rem;
