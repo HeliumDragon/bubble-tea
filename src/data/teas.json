@@ -11,7 +11,13 @@
     "productImageThumb": "",
     "productImageFile": "classic.svg",
     "allergenTag": [1, 3],
-    "awardTag": []
+    "awardTag": [],
+    "options": {
+      "size": "regular",
+      "temperature": "50PercentIce",
+      "sugarLevel": "RegularSugar",
+      "toppings": ["Pearl"]
+    }
   },
   {
     "id": "2",
@@ -25,7 +31,13 @@
     "productImageThumb": "",
     "productImageFile": "cheese.svg",
     "allergenTag": [1, 3],
-    "awardTag": []
+    "awardTag": [],
+    "options": {
+      "size": "regular",
+      "temperature": "50PercentIce",
+      "sugarLevel": "RegularSugar",
+      "toppings": []
+    }
   },
   {
     "id": "3",
@@ -39,7 +51,13 @@
     "productImageThumb": "",
     "productImageFile": "lychee.svg",
     "allergenTag": [1],
-    "awardTag": []
+    "awardTag": [],
+    "options": {
+      "size": "regular",
+      "temperature": "50PercentIce",
+      "sugarLevel": "RegularSugar",
+      "toppings": ["Pearl"]
+    }
   },
   {
     "id": "4",
@@ -53,7 +71,13 @@
     "productImageThumb": "",
     "productImageFile": "watermelon.svg",
     "allergenTag": [1],
-    "awardTag": []
+    "awardTag": [],
+    "options": {
+      "size": "regular",
+      "temperature": "50PercentIce",
+      "sugarLevel": "RegularSugar",
+      "toppings": []
+    }
   },
   {
     "id": "5",
@@ -67,7 +91,13 @@
     "productImageThumb": "",
     "productImageFile": "jasmine.svg",
     "allergenTag": [1, 3],
-    "awardTag": []
+    "awardTag": [],
+    "options": {
+      "size": "regular",
+      "temperature": "50PercentIce",
+      "sugarLevel": "RegularSugar",
+      "toppings": ["Pearl"]
+    }
   },
   {
     "id": "6",
@@ -81,20 +111,32 @@
     "productImageThumb": "",
     "productImageFile": "matcha.svg",
     "allergenTag": [1, 3],
-    "awardTag": []
+    "awardTag": [],
+    "options": {
+      "size": "regular",
+      "temperature": "50PercentIce",
+      "sugarLevel": "RegularSugar",
+      "toppings": ["Pearl"]
+    }
   },
   {
     "id": "7",
     "name": "Rainbow Lotus",
     "price": 5.99,
     "category": 4,
-    "description": "A colourful fruity mix will help guide you on your path to enlightenment.",
+    "description": "A colourful blend of real fruit juice and crushed ice will help guide you on your path to enlightenment.",
     "isAvailable": true,
     "isColdOnly": true,
     "isRecommended": false,
     "productImageThumb": "",
     "productImageFile": "rainbow.svg",
     "allergenTag": [1],
-    "awardTag": []
+    "awardTag": [],
+    "options": {
+      "size": "regular",
+      "temperature": "100PercentIce",
+      "sugarLevel": "RegularSugar",
+      "toppings": []
+    }
   }
 ]
