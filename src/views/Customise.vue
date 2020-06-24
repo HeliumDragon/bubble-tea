@@ -1,21 +1,37 @@
 <template>
-  <section class="flex flex-col p-4 h-full">
-    <h1>Tea id: {{id}}</h1>
-    <Detail v-bind:name="'Test tea'" v-bind:description="'Testing flavour'" v-bind:price="1.99" />
+  <section class="customise flex flex-col p-4 h-screen">
+    <Detail
+      :name="tea.name"
+      :description="tea.description"
+      :price="tea.price"
+    />
   </section>
 </template>
 
 <script>
-import Detail from "../components/Detail";
+import Detail from '../components/Detail';
 
 export default {
+  data() {
+    return {
+      tea: Object,
+      default: {},
+    };
+  },
   components: {
-    Detail
+    Detail,
   },
   props: {
     id: {
-      type: String
-    }
-  }
+      type: String,
+    },
+  },
+  created() {
+    fetch(`http://localhost:5050/teas/${this.id}`)
+      .then((response) => response.json())
+      .then((data) => (this.tea = data));
+  },
 };
 </script>
+
+<style scoped></style>

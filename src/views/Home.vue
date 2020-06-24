@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <Hero />
-    <Shop />
+    <Shop :teas="teas" />
   </div>
 </template>
 
@@ -11,9 +11,19 @@ import Shop from '../components/Shop';
 
 export default {
   name: 'Home',
+  data() {
+    return {
+      teas: [],
+    };
+  },
   components: {
     Hero,
     Shop,
+  },
+  created() {
+    fetch('http://localhost:5050/teas/')
+      .then((response) => response.json())
+      .then((data) => (this.teas = data));
   },
 };
 </script>

@@ -22,8 +22,6 @@
                   tea.price
                 }}</span>
               </div>
-
-              <p class="leading-relaxed">{{ tea.description }}</p>
             </div>
           </div>
         </router-link>
@@ -33,14 +31,13 @@
 </template>
 
 <script>
-import teas from '../data/teas.json';
-
 export default {
   name: 'Shop',
-  data: function() {
-    return {
-      teas,
-    };
+  props: {
+    teas: {
+      type: Array,
+      default: () => [],
+    },
   },
   methods: {
     getImagePath: function(fileName) {
@@ -57,10 +54,6 @@ export default {
 </script>
 
 <style scoped>
-.shop {
-  background-color: floralwhite;
-}
-
 .price {
   background-color: #02bfff;
   color: #fff;
