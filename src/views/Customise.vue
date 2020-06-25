@@ -1,6 +1,7 @@
 <template>
   <section class="customise grid grid-cols-2 gap-4 h-screen w-full">
     <Detail
+      class="col-span-2"
       :name="tea.name"
       :description="tea.description"
       :price="tea.price"
@@ -10,13 +11,13 @@
     <div>
       <h2 class="text-4xl mb-4">Customise Your Tea!</h2>
 
-      <CustomiseForm />
+      <!-- <CustomiseForm /> -->
     </div>
   </section>
 </template>
 
 <script>
-import CustomiseForm from '../components/Customise-Form';
+// import CustomiseForm from '../components/Customise-Form';
 import Detail from '../components/Detail';
 
 export default {
@@ -27,7 +28,7 @@ export default {
     };
   },
   components: {
-    CustomiseForm,
+    // CustomiseForm,
     Detail
   },
   props: {
