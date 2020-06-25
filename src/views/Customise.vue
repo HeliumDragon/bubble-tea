@@ -1,36 +1,40 @@
 <template>
-  <section class="customise flex flex-col p-4 h-screen">
-    <Detail
-      :name="tea.name"
-      :description="tea.description"
-      :price="tea.price"
-    />
+  <section class="customise grid grid-cols-2 gap-4 h-screen w-full">
+    <Detail :name="tea.name" :description="tea.description" :price="tea.price" />
+
+    <div>
+      <h2 class="text-4xl mb-4">Customise Your Tea!</h2>
+
+      <CustomiseForm />
+    </div>
   </section>
 </template>
 
 <script>
-import Detail from '../components/Detail';
+import CustomiseForm from "../components/Customise-Form";
+import Detail from "../components/Detail";
 
 export default {
   data() {
     return {
       tea: Object,
-      default: {},
+      default: {}
     };
   },
   components: {
-    Detail,
+    CustomiseForm,
+    Detail
   },
   props: {
     id: {
-      type: String,
-    },
+      type: String
+    }
   },
   created() {
     fetch(`http://localhost:5050/teas/${this.id}`)
-      .then((response) => response.json())
-      .then((data) => (this.tea = data));
-  },
+      .then(response => response.json())
+      .then(data => (this.tea = data));
+  }
 };
 </script>
 
