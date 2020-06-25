@@ -1,9 +1,17 @@
 <template>
   <div class="flex flex-col">
-    <div class="drink-container">
-      <img :src="getImagePath(img)" :alt="img" class="m-auto w-64" />
-      <img :src="getIcingPath()" :alt="img" class="w-48 mx-auto" />
-      <img :src="getBobaPath()" :alt="img" class="w-40 mx-auto" />
+    <div class="drink-container relative text-center w-64">
+      <img
+        :src="getIcingPath()"
+        :alt="img"
+        class="w-11/12 absolute top-0 transform translate-y-15 translate-x-3"
+      />
+      <img :src="getImagePath(img)" :alt="img" />
+      <img
+        :src="getBobaPath()"
+        :alt="img"
+        class="w-40 absolute bottom-0 origin-bottom-left transform translate-x-12"
+      />
     </div>
     <div class="mt-3">
       <h2 class="text-4xl">{{ name }}</h2>
@@ -40,4 +48,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.translate-y-15 {
+  --transform-translate-y: 2.5rem;
+}
+</style>
