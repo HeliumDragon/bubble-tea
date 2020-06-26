@@ -26,6 +26,7 @@
 <script>
 import CustomiseForm from '../components/Customise-Form';
 import Detail from '../components/Detail';
+import httpService from '../services/http-service';
 
 export default {
   data() {
@@ -82,7 +83,7 @@ export default {
           return;
       }
     },
-    confirm() {
+    async confirm() {
       const selectedTea = {
         base: this.tea,
         size: this.selectedSize,
@@ -92,13 +93,7 @@ export default {
         unitPrice: this.unitPrice
       };
 
-      fetch('http://localhost:5050/cart', {
-        method: 'POST',
-        body: JSON.stringify(selectedTea),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
+      await httpService.post('cart', selectedTea);
 
       localStorage.setItem('chosenTeas', JSON.stringify(selectedTea));
 
@@ -109,17 +104,13 @@ export default {
       this.selectedIcing = null;
     }
   },
-  created() {
-    fetch(`http://localhost:5050/teas/${this.id}`)
-      .then(response => response.json())
-      .then(data => (this.tea = data));
+  async created() {
+    const tea = await httpService.get(`teas/${this.id}`);
+    this.tea = tea;
 
-    fetch(`http://localhost:5050/extras`)
-      .then(response => response.json())
-      .then(data => {
-        this.icings = data.icings;
-        this.bobas = data.bobas;
-      });
+    const extras = await httpService.get(`extras`);
+    this.icings = extras.icings;
+    this.bobas = extras.bobas;
   }
 };
 </script>

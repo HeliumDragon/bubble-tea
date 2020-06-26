@@ -8,22 +8,21 @@
 <script>
 import Hero from '../components/Hero';
 import Shop from '../components/Shop';
+import httpService from '../services/http-service';
 
 export default {
   name: 'Home',
   data() {
     return {
-      teas: [],
+      teas: []
     };
   },
   components: {
     Hero,
-    Shop,
+    Shop
   },
   created() {
-    fetch('http://localhost:5050/teas/')
-      .then((response) => response.json())
-      .then((data) => (this.teas = data));
-  },
+    httpService.get('teas/').then(data => (this.teas = data));
+  }
 };
 </script>
