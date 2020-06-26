@@ -1,0 +1,122 @@
+
+
+enum Category{
+	ClassicTea
+  MilkTea
+	FruitTea
+	CheeseTea
+  SpecialTea
+}
+
+enum Sweetness {
+  NoSugar
+  LittleSugar
+  RegularSugar
+  MoreSugar
+}
+
+enum Temperature {
+	Hot
+	NoIce
+	30PercentIce
+	50PercentIce
+	100PpercentIce
+	120PercentIce
+}
+enum AddOns {
+  Pearl
+  Aloe
+  CoconutJelly
+  GrassJelly
+  Oat
+  CoffeeJelly
+  Pudding
+  RedBean
+  WhitePearl
+}
+
+enum Allergen {
+  Cereals
+  Gluten
+  Eggs
+  Milk
+  Nuts
+  Peanuts
+  SesameSeeds
+  Soya
+}
+
+type Beverage {
+  id: ID!
+  name: String!
+  price: Float!
+  productImageFile: String!
+  category: Category
+	description: String
+  isAvailable: Boolean
+	isColdOnly: Boolean
+	isRecommended: Boolean
+  productImageThumb: String
+	allergenTag: [Allergen]
+	awardTag: [String]
+  options: Customisation
+}
+
+type Extra {
+  id: ID!,
+  name: String!
+  svg: String
+}
+
+type Customisation {
+	size: String!
+	icing: Extra
+	boba: Extra
+}
+
+type Promotion {}
+
+
+type Customer {
+  id: ID!
+	name: String
+  email: String
+}
+
+type Cart {
+  items: [CartItem]
+  totalPrice: Float!
+}
+
+type CartItem {
+	productId: String
+	name: String
+	quantity: Int!
+	unitPrice: Float!
+	productImageThumb: String!
+}
+
+type Order {}
+
+type AllergyInfo {
+  isVegan: Boolean
+  hasNuts: Boolean
+  spicy: Boolean,
+  allergen: [Allergen]
+}
+
+type Address {
+  fullname: String!
+  addressLine1: String!
+  addressLine2: String
+  postOrZipcode: String!
+  townOrCity: String!
+  countyOrState: String
+}
+
+type PaymentCard {
+  name: String!
+  number: Int!
+  expireMonth: String!
+  expireYear: String!
+}

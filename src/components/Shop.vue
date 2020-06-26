@@ -36,8 +36,8 @@ export default {
   props: {
     teas: {
       type: Array,
-      default: () => [],
-    },
+      default: () => []
+    }
   },
   methods: {
     getImagePath: function(fileName) {
@@ -48,8 +48,8 @@ export default {
       )(`./${fileName}`);
 
       return path;
-    },
-  },
+    }
+  }
 };
 </script>
 

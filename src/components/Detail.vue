@@ -1,49 +1,25 @@
 <template>
   <div class="flex flex-col ml-3">
-    <div class="drink-container relative w-64 m-auto">
+    <div class="drink-container relative w-64 mx-auto">
       <img
-        v-if="selectedIcing"
+        v-if="icing"
         :src="getIcingPath()"
         :alt="img"
         class="w-11/12 absolute top-0 transform translate-y-15 translate-x-3"
       />
       <img
-        v-if="selectedBoba"
+        v-if="boba"
         :src="getBobaPath()"
         :alt="img"
         class=" w-8/12 absolute bottom-0 origin-bottom-left transform translate-x-10 -translate-y-1"
       />
       <img :src="getImagePath(img)" :alt="img" />
     </div>
-    <div class="mt-3 w-1/3 m-auto ">
+    <div class="w-1/3 mt-8 mx-auto">
       <h2 class="text-4xl">{{ name }}</h2>
       <p>{{ description }}</p>
       <hr class="my-4" />
-      <p>{{ price }}</p>
-    </div>
-    <div class="extras w-1/3 m-auto">
-      <div class="bobas">
-        <button
-          class="bg-green-100 px-3 py-3 m-3 font-semibold text-gray-700"
-          :class="{ 'bg-green-400': selectedBoba.id === boba.id }"
-          @click="selectedBoba = boba"
-          v-for="boba in bobas"
-          :key="boba.id"
-        >
-          {{ boba.name }}
-        </button>
-      </div>
-      <div class="icings">
-        <button
-          class="bg-blue-100 px-3 py-3 m-3 font-semibold text-gray-700"
-          :class="{ 'bg-blue-400': selectedIcing.id === icing.id }"
-          @click="selectedIcing = icing"
-          v-for="icing in icings"
-          :key="icing.id"
-        >
-          {{ icing.name }}
-        </button>
-      </div>
+      <p class="font-bold text-lg">{{ price }}</p>
     </div>
   </div>
 </template>
@@ -54,24 +30,16 @@ export default {
   data() {
     return {
       selectedIcing: null,
-      selectedBoba: null,
-      icings: [],
-      bobas: []
+      selectedBoba: null
     };
   },
   props: {
     name: String,
     description: String,
     price: Number,
-    img: String
-  },
-  created() {
-    fetch(`http://localhost:5050/extras`)
-      .then(response => response.json())
-      .then(data => {
-        this.icings = data.icings;
-        this.bobas = data.bobas;
-      });
+    img: String,
+    boba: Object,
+    icing: Object
   },
   methods: {
     getImagePath: function(fileName) {
@@ -81,24 +49,24 @@ export default {
       return require.context('@/assets/base', false, /\.svg$/)(`./${fileName}`);
     },
     getBobaPath: function() {
-      if (!this.selectedBoba) {
+      if (!this.boba) {
         return;
       }
       return require.context(
         '@/assets/boba',
         false,
         /\.svg$/
-      )(`./${this.selectedBoba.svg}`);
+      )(`./${this.boba.svg}`);
     },
     getIcingPath: function() {
-      if (!this.selectedIcing) {
+      if (!this.icing) {
         return;
       }
       return require.context(
         '@/assets/icing',
         false,
         /\.svg$/
-      )(`./${this.selectedIcing.svg}`);
+      )(`./${this.icing.svg}`);
     }
   }
 };

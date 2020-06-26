@@ -1,88 +1,82 @@
 <template>
-  <div class="grid grid-cols-2 gap-4 w-full">
-    <form class="form w-full bg-white p-4" @submit="submitForm">
-      <div class="grid grid-cols-2 grid-rows-2 gap-4 w-full">
-        <div class="form-control text-left p-4 w-full">
-          <h2 class="font-bold">Size</h2>
+  <div class="flex flex-col items-center w-full bg-white py-4">
+    <div class="p-4 w-1/3">
+      <h2 class="font-bold">Size</h2>
 
-          <div class="flex flex-col justify-end py-4">
-            <div class="flex justify-between items-baseline px-1">
-              <label for="regular">Regular</label>
-              <input type="radio" id="regular" value="Regular" v-model="size" />
-            </div>
-
-            <div class="flex justify-between items-baseline px-1">
-              <label for="large" class="mb-2">Large</label>
-              <input type="radio" id="large" value="Large" v-model="size" />
-            </div>
-          </div>
+      <div class="flex flex-col justify-center py-4">
+        <div class="flex justify-between items-baseline px-1">
+          <label for="regular" class="text-left w-full">Regular</label>
+          <input
+            type="radio"
+            id="regular"
+            value="Regular"
+            v-model="size"
+            @change="$emit('customisation', ['size', size])"
+          />
         </div>
 
-        <div class="form-control text-left p-4 w-full">
-          <label for="temperature" class="block font-bold mb-2">Temperature</label>
-          <select id="temperature" name="temperature" class="py-2" v-model="temperature">
-            <option>Hot</option>
-            <option>NoIce</option>
-            <option>30PercentIce</option>
-            <option>50PercentIce</option>
-            <option>100PercentIce</option>
-            <option>120PercentIce</option>
-          </select>
-        </div>
-
-        <div class="form-control text-left p-4 w-full">
-          <label for="sugar" class="block font-bold mb-2">Amount of Sugar</label>
-          <select id="sugar" name="sugar" class="py-2" v-model="sugarLevel">
-            <option>NoSugar</option>
-            <option>LittleSugar</option>
-            <option>RegularSugar</option>
-            <option>MoreSugar</option>
-          </select>
-        </div>
-
-        <div class="form-control text-left p-4 w-full">
-          <label for="toppingList" class="block font-bold mb-2">Toppings</label>
-          <select
-            id="toppingList"
-            name="toppingList"
-            class="border p-2"
-            v-model="selectedToppings"
-            multiple
-          >
-            <option :key="topping" v-for="topping in toppings" v-bind:value="topping">{{ topping }}</option>
-          </select>
+        <div class="flex justify-between items-baseline px-1">
+          <label for="large" class="text-left w-full mb-2">Large</label>
+          <input
+            type="radio"
+            id="large"
+            value="Large"
+            v-model="size"
+            @change="$emit('customisation', ['size', size])"
+          />
         </div>
       </div>
+    </div>
 
-      <hr class="my-4" />
+    <div class="extras">
+      <h2 class="font-bold">Extras</h2>
 
-      <div class="flex justify-end">
-        <button class="confirm-options-btn font-bold border rounded-lg p-4">Confirm</button>
+      <div class="bobas">
+        <h3>Bobas</h3>
+        <button
+          class="bg-green-100 px-3 py-3 m-3 font-semibold text-gray-700"
+          :class="{
+            'bg-green-400': selectedBoba && selectedBoba.id === boba.id
+          }"
+          @click="$emit('customisation', ['selectBobas', boba])"
+          v-for="boba in bobas"
+          :key="boba.id"
+        >
+          {{ boba.name }}
+        </button>
       </div>
-    </form>
+      <div class="icings">
+        <h3>Icings</h3>
+        <button
+          class="bg-blue-100 px-3 py-3 m-3 font-semibold text-gray-700"
+          :class="{
+            'bg-blue-400': selectedIcing && selectedIcing.id === icing.id
+          }"
+          @click="$emit('customisation', ['selectIcing', icing])"
+          v-for="icing in icings"
+          :key="icing.id"
+        >
+          {{ icing.name }}
+        </button>
+      </div>
+    </div>
 
-    <div class="w-full bg-white p-4">
-      <h1 class="text-xl font-bold tracking-wide">Your Customised Tea</h1>
+    <hr class="my-4" />
 
-      <hr class="my-4" />
+    <div class="flex justify-end p-4">
+      <button
+        @click="$emit('customisation', ['reset-toppings'])"
+        class="confirm-options-btn font-bold border rounded-lg p-4 mr-8"
+      >
+        Remove Extras
+      </button>
 
-      <h2 class="text-l font-bold">Size</h2>
-      <p>{{size}}</p>
-
-      <hr class="my-4" />
-
-      <h2 class="text-l font-bold">Temperature</h2>
-      <p>{{temperature}}</p>
-
-      <hr class="my-4" />
-
-      <h2 class="text-l font-bold">Sugar</h2>
-      <p>{{sugarLevel}}</p>
-
-      <hr class="my-4" />
-
-      <h2 class="text-l font-bold">Toppings</h2>
-      <p>{{selectedToppings}}</p>
+      <button
+        @click="$emit('customisation', ['confirm'])"
+        class="confirm-options-btn font-bold border rounded-lg p-4"
+      >
+        Add to Cart
+      </button>
     </div>
   </div>
 </template>
@@ -91,26 +85,19 @@
 export default {
   data() {
     return {
-      size: "Regular",
-      temperature: "50PercentIce",
-      sugarLevel: "RegularSugar",
-      selectedToppings: [],
-      toppings: [
-        "Pearl",
-        "Aloe",
-        "CoconutJelly",
-        "GrassJelly",
-        "Oat",
-        "CoffeeJelly",
-        "Pudding",
-        "RedBean",
-        "WhitePearl"
-      ]
+      size: 'Regular'
     };
   },
-  methods: {
-    submitForm(event) {
-      event.preventDefault();
+  props: {
+    selectedBoba: Object,
+    selectedIcing: Object,
+    icings: {
+      type: Array,
+      default: () => []
+    },
+    bobas: {
+      type: Array,
+      default: () => []
     }
   }
 };
