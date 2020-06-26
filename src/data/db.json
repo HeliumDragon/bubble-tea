@@ -1,4 +1,65 @@
 {
+  "extras": {
+    "bobas": [
+      {
+        "id": "1",
+        "name": "caramel",
+        "svg": "caramel.svg"
+      },
+      {
+        "id": "2",
+        "name": "chocolate",
+        "svg": "chocolate.svg"
+      },
+      {
+        "id": "3",
+        "name": "classic",
+        "svg": "classic.svg"
+      },
+      {
+        "id": "4",
+        "name": "coconut",
+        "svg": "coconut.svg"
+      },
+      {
+        "id": "5",
+        "name": "mixed",
+        "svg": "mixed.svg"
+      }
+    ],
+    "icings": [
+      {
+        "id": "1",
+        "name": "coco",
+        "svg": "coco.svg"
+      },
+      {
+        "id": "2",
+        "name": "lychee",
+        "svg": "lychee.svg"
+      },
+      {
+        "id": "3",
+        "name": "matcha",
+        "svg": "matcha.svg"
+      },
+      {
+        "id": "4",
+        "name": "passionfruit",
+        "svg": "passionfruit.svg"
+      },
+      {
+        "id": "5",
+        "name": "strawberry",
+        "svg": "strawberry.svg"
+      },
+      {
+        "id": "6",
+        "name": "watermelon",
+        "svg": "watermelon.svg"
+      }
+    ]
+  },
   "teas": [
     {
       "id": "1",
