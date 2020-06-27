@@ -117,7 +117,7 @@
         <g
           v-if="showStraw"
           id="straw"
-          :fill="straw"
+          fill="#000"
           transform="translate(9.000000, 0.000000)"
         >
           <path
@@ -162,21 +162,51 @@
 
 <script>
 export default {
-  data() {
-    return {
-      straw: '#000',
-      base1: '#FF84A5',
-      base2: '#fff',
-      base3: '#FFC276',
-      base4: '#F59C2C',
-      icing: '#FFB5C9',
-      boba1: '#fff',
-      boba2: '#000',
-      showBoba: true,
-      showStraw: true,
-      showIcing: true,
-      showLid: true
-    };
+  props: {
+    base1: {
+      type: String,
+      default: '#FF84A5'
+    },
+    base2: {
+      type: String,
+      default: '#fff'
+    },
+    base3: {
+      type: String,
+      default: '#FFC276'
+    },
+    base4: {
+      type: String,
+      default: '#F59C2C'
+    },
+    icing: {
+      type: String,
+      default: '#FFB5C9'
+    },
+    boba1: {
+      type: String,
+      default: '#fff'
+    },
+    boba2: {
+      type: String,
+      default: '#000'
+    },
+    showBoba: {
+      type: Boolean,
+      default: true
+    },
+    showStraw: {
+      type: Boolean,
+      default: true
+    },
+    showIcing: {
+      type: Boolean,
+      default: true
+    },
+    showLid: {
+      type: Boolean,
+      default: true
+    }
   }
 };
 </script>
