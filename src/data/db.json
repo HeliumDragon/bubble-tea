@@ -4,24 +4,28 @@
     "bobas": [
       {
         "id": "1",
-        "name": "caramel"
+        "name": "caramel",
+        "color": ["caramel"]
       },
       {
         "id": "2",
-        "name": "coco"
+        "name": "coco",
+        "color": ["coco"]
       },
       {
         "id": "3",
-        "name": "classic"
+        "name": "classic",
+        "color": ["black"]
       },
       {
         "id": "4",
-        "name": "coconut"
+        "name": "coconut",
+        "color": ["coconut"]
       },
       {
         "id": "5",
         "name": "mixed",
-        "codes": ["coconut", "chocolate"]
+        "color": ["black", "milk"]
       }
     ],
     "icings": [

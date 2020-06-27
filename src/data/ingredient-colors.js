@@ -13,7 +13,8 @@ export default {
   strawberry: '#ff84a5',
   watermelonDeep: '#ff2010',
   matcha: '#c3ce42',
-  matchaDeep: '#767E0E'
+  matchaDeep: '#767E0E',
+  black: '#000'
 };
 // <div>
 //   <button
