@@ -64,7 +64,10 @@
         @click="$emit('customisation', ['reset-toppings'])"
         class="confirm-options-btn font-bold border rounded-lg p-4 mr-8"
       >Remove Extras</button>
-
+      <button
+        @click="$emit('customisation', ['reset-original'])"
+        class="confirm-options-btn font-bold border rounded-lg p-4 mr-8"
+      >Reset</button>
       <button
         @click="$emit('customisation', ['confirm'])"
         class="confirm-options-btn font-bold border rounded-lg p-4"
