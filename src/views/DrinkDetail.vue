@@ -10,8 +10,7 @@
         boba1="#000"
         boba2="#000"
         :showStraw="false"
-      >
-      </BubbleTeaDisplay>
+      ></BubbleTeaDisplay>
       <!-- <img :src="getImagePath(item.productImageFile)" alt="img" /> -->
       <div class="text-sm font-mono font-semibold">{{ item.name }}</div>
       <div class="text-sm font-mono font-semibold">{{ item.color }}</div>
@@ -22,7 +21,7 @@
 <script>
 import BubbleTeaDisplay from '../components/bubble-tea-display';
 import httpService from '../services/http-service';
-import colorCodes from './dict';
+import colorCodes from '../data/ingredient-colors';
 export default {
   components: {
     BubbleTeaDisplay
