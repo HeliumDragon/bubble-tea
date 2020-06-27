@@ -4,60 +4,50 @@
     "bobas": [
       {
         "id": "1",
-        "name": "caramel",
-        "svg": "caramel.svg"
+        "name": "caramel"
       },
       {
         "id": "2",
-        "name": "chocolate",
-        "svg": "chocolate.svg"
+        "name": "chocolate"
       },
       {
         "id": "3",
-        "name": "classic",
-        "svg": "classic.svg"
+        "name": "classic"
       },
       {
         "id": "4",
-        "name": "coconut",
-        "svg": "coconut.svg"
+        "name": "coconut"
       },
       {
         "id": "5",
         "name": "mixed",
-        "svg": "mixed.svg"
+        "codes": ["coconut", "chocolate"]
       }
     ],
     "icings": [
       {
         "id": "1",
-        "name": "coco",
-        "svg": "coco.svg"
+        "name": "coco"
       },
       {
         "id": "2",
-        "name": "lychee",
-        "svg": "lychee.svg"
+        "name": "lychee"
       },
       {
         "id": "3",
-        "name": "matcha",
-        "svg": "matcha.svg"
+        "name": "matcha"
       },
       {
         "id": "4",
-        "name": "passionfruit",
-        "svg": "passionfruit.svg"
+        "name": "passionfruit"
       },
       {
         "id": "5",
-        "name": "strawberry",
-        "svg": "strawberry.svg"
+        "name": "strawberry"
       },
       {
         "id": "6",
-        "name": "watermelon",
-        "svg": "watermelon.svg"
+        "name": "watermelon"
       }
     ]
   },
@@ -65,6 +55,7 @@
     {
       "id": "1",
       "name": "Buddha's Classic",
+      "color": ["classic"],
       "price": 4.99,
       "category": 0,
       "description": "True enlightenment is but a sip away with this classic bubble tea. Black tea is shaken together with frothy milk and crushed ice poured over scrumptious caramelized tapioca pearls.",
@@ -85,6 +76,7 @@
     {
       "id": "2",
       "name": "Cheesey Bliss",
+      "color": ["cheese"],
       "price": 5.69,
       "category": 3,
       "description": "Experience Cheese Nirvana. This delicious beverage is crowned with a tangy cheese cream.",
@@ -105,6 +97,7 @@
     {
       "id": "3",
       "name": "Light of the Lychee",
+      "color": ["lychee"],
       "price": 5.49,
       "category": 2,
       "description": "Lose yourself in the delicate sweetness of fresh lychee.",
@@ -125,6 +118,7 @@
     {
       "id": "4",
       "name": "Watermelon Splash",
+      "color": ["watermelon"],
       "price": 5.49,
       "category": 2,
       "description": "Refresh your body and mind with a hit of watermelon.",
@@ -145,6 +139,7 @@
     {
       "id": "5",
       "name": "Jasmine Milk Pearl",
+      "color": ["jasmine"],
       "price": 5.29,
       "category": 1,
       "description": "A firm favourite. Experience the heady scent and taste of jasmine bathed in milk.",
@@ -165,6 +160,7 @@
     {
       "id": "6",
       "name": "Matcha Heaven",
+      "color": ["matcha"],
       "price": 5.29,
       "category": 1,
       "description": "Take time to savour the unique flavour of matcha.",
@@ -185,6 +181,7 @@
     {
       "id": "7",
       "name": "Rainbow Lotus",
+      "color": ["watermelonDeep"],
       "price": 5.99,
       "category": 4,
       "description": "A colourful blend of real fruit juice and crushed ice will help guide you on your path to enlightenment.",
