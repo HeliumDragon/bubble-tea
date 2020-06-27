@@ -13,6 +13,8 @@
         :boba2="customBoba2Color"
         :showStraw="false"
         :showLid="false"
+        :showIcing="!!this.selectedIcing"
+        :showBoba="!!this.selectedBoba"
       ></BubbleTeaDisplay>
     </div>
     <div class="gr">
@@ -95,6 +97,9 @@ export default {
           this.selectedIcing = item;
           break;
         case 'reset-toppings':
+          this.remove();
+          break;
+        case 'reset-original':
           this.reset();
           break;
         case 'confirm':
@@ -120,9 +125,15 @@ export default {
 
       this.$router.replace('/');
     },
-    reset() {
-      this.selectedBoba = null;
+    remove() {
       this.selectedIcing = null;
+      this.selectedBoba = null;
+    },
+    reset() {
+      this.selectedBoba = this.bobas.find(i => i.name === 'classic');
+      this.selectedIcing = this.icings.find(
+        i => i.name === this.tea.ingredients.icing
+      );
     }
   },
   async created() {
@@ -130,8 +141,9 @@ export default {
     this.tea = tea;
 
     const extras = await httpService.get(`extras`);
-    this.icings = extras.icings;
+    this.icings = extras.icings.filter(i => i.name !== tea.ingredients.base1);
     this.bobas = extras.bobas;
+    this.reset();
   }
 };
 </script>
