@@ -1,5 +1,5 @@
 <template>
-  <section class="customise grid grid-cols-2 gap-4 h-screen w-full">
+  <section class="customise grid grid-cols-2 gap-4 h-screen w-full p-4">
     <Detail
       :name="tea.name"
       :description="tea.description"

@@ -1,39 +1,5 @@
 {
-  "cart": [
-    {
-      "base": {
-        "id": "6",
-        "name": "Matcha Heaven",
-        "price": 5.29,
-        "category": 1,
-        "description": "Take time to savour the unique flavour of matcha.",
-        "isAvailable": true,
-        "isColdOnly": false,
-        "isRecommended": false,
-        "productImageThumb": "",
-        "productImageFile": "matcha.svg",
-        "allergenTag": [
-          1,
-          3
-        ],
-        "awardTag": [],
-        "options": {
-          "size": "regular",
-          "temperature": "50PercentIce",
-          "sugarLevel": "RegularSugar",
-          "toppings": [
-            "Pearl"
-          ]
-        }
-      },
-      "size": "Regular",
-      "boba": null,
-      "icing": null,
-      "quantity": 1,
-      "unitPrice": 5.29,
-      "id": 1
-    }
-  ],
+  "cart": [],
   "extras": {
     "bobas": [
       {
@@ -107,18 +73,13 @@
       "isRecommended": true,
       "productImageThumb": "",
       "productImageFile": "classic.svg",
-      "allergenTag": [
-        1,
-        3
-      ],
+      "allergenTag": [1, 3],
       "awardTag": [],
       "options": {
         "size": "regular",
         "temperature": "50PercentIce",
         "sugarLevel": "RegularSugar",
-        "toppings": [
-          "Pearl"
-        ]
+        "toppings": ["Pearl"]
       }
     },
     {
@@ -132,10 +93,7 @@
       "isRecommended": false,
       "productImageThumb": "",
       "productImageFile": "cheese.svg",
-      "allergenTag": [
-        1,
-        3
-      ],
+      "allergenTag": [1, 3],
       "awardTag": [],
       "options": {
         "size": "regular",
@@ -155,17 +113,13 @@
       "isRecommended": false,
       "productImageThumb": "",
       "productImageFile": "lychee.svg",
-      "allergenTag": [
-        1
-      ],
+      "allergenTag": [1],
       "awardTag": [],
       "options": {
         "size": "regular",
         "temperature": "50PercentIce",
         "sugarLevel": "RegularSugar",
-        "toppings": [
-          "Pearl"
-        ]
+        "toppings": ["Pearl"]
       }
     },
     {
@@ -179,9 +133,7 @@
       "isRecommended": false,
       "productImageThumb": "",
       "productImageFile": "watermelon.svg",
-      "allergenTag": [
-        1
-      ],
+      "allergenTag": [1],
       "awardTag": [],
       "options": {
         "size": "regular",
@@ -201,18 +153,13 @@
       "isRecommended": true,
       "productImageThumb": "",
       "productImageFile": "jasmine.svg",
-      "allergenTag": [
-        1,
-        3
-      ],
+      "allergenTag": [1, 3],
       "awardTag": [],
       "options": {
         "size": "regular",
         "temperature": "50PercentIce",
         "sugarLevel": "RegularSugar",
-        "toppings": [
-          "Pearl"
-        ]
+        "toppings": ["Pearl"]
       }
     },
     {
@@ -226,18 +173,13 @@
       "isRecommended": false,
       "productImageThumb": "",
       "productImageFile": "matcha.svg",
-      "allergenTag": [
-        1,
-        3
-      ],
+      "allergenTag": [1, 3],
       "awardTag": [],
       "options": {
         "size": "regular",
         "temperature": "50PercentIce",
         "sugarLevel": "RegularSugar",
-        "toppings": [
-          "Pearl"
-        ]
+        "toppings": ["Pearl"]
       }
     },
     {
@@ -251,9 +193,7 @@
       "isRecommended": false,
       "productImageThumb": "",
       "productImageFile": "rainbow.svg",
-      "allergenTag": [
-        1
-      ],
+      "allergenTag": [1],
       "awardTag": [],
       "options": {
         "size": "regular",

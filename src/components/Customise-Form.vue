@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center w-full bg-white py-4">
+  <div class="flex flex-col items-center w-full bg-white border py-4">
     <div class="p-4 w-1/3">
       <h2 class="font-bold">Size</h2>
 
@@ -41,9 +41,7 @@
           @click="$emit('customisation', ['selectBobas', boba])"
           v-for="boba in bobas"
           :key="boba.id"
-        >
-          {{ boba.name }}
-        </button>
+        >{{ boba.name }}</button>
       </div>
       <div class="icings">
         <h3>Icings</h3>
@@ -55,9 +53,7 @@
           @click="$emit('customisation', ['selectIcing', icing])"
           v-for="icing in icings"
           :key="icing.id"
-        >
-          {{ icing.name }}
-        </button>
+        >{{ icing.name }}</button>
       </div>
     </div>
 
@@ -67,16 +63,12 @@
       <button
         @click="$emit('customisation', ['reset-toppings'])"
         class="confirm-options-btn font-bold border rounded-lg p-4 mr-8"
-      >
-        Remove Extras
-      </button>
+      >Remove Extras</button>
 
       <button
         @click="$emit('customisation', ['confirm'])"
         class="confirm-options-btn font-bold border rounded-lg p-4"
-      >
-        Add to Cart
-      </button>
+      >Add to Cart</button>
     </div>
   </div>
 </template>
