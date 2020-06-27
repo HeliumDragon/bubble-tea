@@ -1,4 +1,4 @@
-export default {
+export const colorCodes = {
   milk: '#fff',
   coconut: '#ffe',
   jasmine: '#FFF8DC',
@@ -15,6 +15,24 @@ export default {
   matcha: '#c3ce42',
   matchaDeep: '#767E0E',
   black: '#000'
+};
+export const colorTextCodes = {
+  milk: '#000',
+  coconut: '#000',
+  jasmine: '#000',
+  passionfruit: '#000',
+  classic: '#fff',
+  cheese: '#fff',
+  caramel: '#fff',
+  coco: '#fff',
+  lychee: '#000',
+  sakura: '#000',
+  watermelon: '#fff',
+  strawberry: '#fff',
+  watermelonDeep: '#fff',
+  matcha: '#fff',
+  matchaDeep: '#fff',
+  black: '#fff'
 };
 // <div>
 //   <button

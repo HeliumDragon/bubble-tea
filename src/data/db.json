@@ -98,7 +98,7 @@
         "base1": "cheese",
         "base2": "milk",
         "base3": "milk",
-        "base4": "milk",
+        "base4": "cheese",
         "icing": "passionfruit"
       },
       "price": 5.69,
@@ -180,7 +180,7 @@
         "base1": "milk",
         "base2": "jasmine",
         "base3": "jasmine",
-        "base4": "jasmine"
+        "base4": "passionfruit"
       },
       "price": 5.29,
       "category": 1,

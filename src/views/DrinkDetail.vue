@@ -21,7 +21,7 @@
 <script>
 import BubbleTeaDisplay from '../components/bubble-tea-display';
 import httpService from '../services/http-service';
-import colorCodes from '../data/ingredient-colors';
+import { colorCodes } from '../data/ingredient-colors';
 export default {
   components: {
     BubbleTeaDisplay

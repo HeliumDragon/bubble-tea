@@ -40,7 +40,7 @@
 
 <script>
 import BubbleTeaDisplay from '../components/bubble-tea-display';
-import colorCodes from '../data/ingredient-colors';
+import { colorCodes } from '../data/ingredient-colors';
 
 export default {
   name: 'Shop',

@@ -1,16 +1,32 @@
 <template>
-  <section class="customise grid grid-cols-2 gap-4 h-screen w-full p-4">
-    <div class="flex align-middle justify-center text-center">
+  <section v-if="tea" class="customise grid grid-cols-2 gap-4 h-screen w-full p-4">
+    <div class="flex flex-col text-center">
+      <p class="mt-2 font-semibold text-2xl">{{tea.name}}</p>
+      <p class="mt-1 font-semibold">£{{unitPrice}}</p>
+      <p class="mt-1 text-gray-700">{{tea.description}}</p>
+
+      <div
+        id="ingredients"
+        class="mt-6"
+        :class="{ '-mb-6':  selectedSize !== 'Regular', '-mb-10': selectedSize === 'Regular'}"
+      >
+        <span
+          v-for="val in  Array.from(new Set(Object.values(ingredients))).filter(a => !!a && a !== 'black')"
+          class="px-2 py-1 text-sm font-semibold tracking-tight text-white mr-2 rounded shadow-md"
+          :style="{'background':colorCodes[val], 'color': colorTextCodes[val]}"
+          :key="val"
+        >{{ val }}</span>
+      </div>
       <BubbleTeaDisplay
-        v-if="tea"
-        class="w-1/3 -mt-64"
-        :base1="getColor(tea, 'base1')"
-        :base2="getColor(tea, 'base2')"
-        :base3="getColor(tea, 'base3')"
-        :base4="getColor(tea, 'base4')"
-        :icing="customIcingColor"
-        :boba1="customBoba1Color"
-        :boba2="customBoba2Color"
+        class="w-1/3 -mt-48 m-auto mb-0"
+        :class="{'w-2/5':  selectedSize !== 'Regular', '-mt-64':  selectedSize !== 'Regular'}"
+        :base1="getColor('base1')"
+        :base2="getColor('base2')"
+        :base3="getColor('base3')"
+        :base4="getColor('base4')"
+        :icing="getColor('icing')"
+        :boba1="getColor('boba1')"
+        :boba2="getColor('boba2')"
         :showStraw="false"
         :showLid="false"
         :showIcing="!!this.selectedIcing"
@@ -34,7 +50,7 @@
 import CustomiseForm from '../components/Customise-Form';
 import httpService from '../services/http-service';
 import BubbleTeaDisplay from '../components/bubble-tea-display';
-import colorCodes from '../data/ingredient-colors';
+import { colorCodes, colorTextCodes } from '../data/ingredient-colors';
 
 export default {
   data() {
@@ -44,7 +60,9 @@ export default {
       selectedIcing: null,
       selectedBoba: null,
       icings: [],
-      bobas: []
+      bobas: [],
+      colorCodes,
+      colorTextCodes
     };
   },
   components: {
@@ -59,30 +77,29 @@ export default {
   computed: {
     unitPrice() {
       const sizeExtra = this.selectedSize === 'Large' ? 0.3 : 0;
-      const icingExtra = this.selectedIcing ? 0.3 : 0;
-      const bobaExtra = this.selectedBoba ? 0.3 : 0;
-      return +(this.tea.price + sizeExtra + icingExtra + bobaExtra).toFixed(2);
+      return +(this.tea.price + sizeExtra).toFixed(2);
     },
-    customBoba1Color() {
-      if (!this.selectedBoba) return '#000';
-      const [boba1] = this.selectedBoba.color;
-      return colorCodes[boba1];
-    },
-    customBoba2Color() {
-      if (!this.selectedBoba) return '#000';
-      const [boba1, boba2] = this.selectedBoba.color;
-      return colorCodes[boba2] ? colorCodes[boba2] : colorCodes[boba1];
-    },
-    customIcingColor() {
-      if (!this.selectedIcing) return colorCodes[this.tea.ingredients.icing];
-      return colorCodes[this.selectedIcing.name];
+    ingredients() {
+      const ingredients = this.tea.ingredients;
+      const icing = this.selectedIcing ? this.selectedIcing.name : null;
+      let boba1 = null,
+        boba2 = null;
+      if (this.selectedBoba) {
+        boba1 = this.selectedBoba.color[0];
+        boba2 = this.selectedBoba.color[1] || boba1;
+      }
+      return {
+        ...ingredients,
+        boba1,
+        boba2,
+        icing
+      };
     }
   },
   methods: {
-    getColor(drink, prop) {
-      return colorCodes[drink.ingredients[prop]];
+    getColor(prop) {
+      return colorCodes[this.ingredients[prop]];
     },
-
     handleCustomise(event) {
       const [eventType, item] = event;
 
@@ -113,8 +130,7 @@ export default {
       const selectedTea = {
         base: this.tea,
         size: this.selectedSize,
-        boba: this.selectedBoba,
-        icing: this.selectedIcing,
+        ingredients: this.ingredients,
         quantity: 1,
         unitPrice: this.unitPrice
       };

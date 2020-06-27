@@ -16,7 +16,10 @@
         </div>
 
         <div class="flex justify-between items-baseline px-1">
-          <label for="large" class="text-left w-full mb-2">Large</label>
+          <label for="large" class="text-left w-full mb-2">
+            Large
+            <span class="text-sm ml-2 font-semibold">+0.30</span>
+          </label>
           <input
             type="radio"
             id="large"
