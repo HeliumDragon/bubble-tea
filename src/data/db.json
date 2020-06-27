@@ -8,7 +8,7 @@
       },
       {
         "id": "2",
-        "name": "chocolate"
+        "name": "coco"
       },
       {
         "id": "3",
@@ -47,7 +47,7 @@
       },
       {
         "id": "6",
-        "name": "watermelon"
+        "name": "watermelonDeep"
       }
     ]
   },
@@ -55,7 +55,13 @@
     {
       "id": "1",
       "name": "Buddha's Classic",
-      "color": ["classic"],
+      "ingredients": {
+        "base1": "milk",
+        "base2": "classic",
+        "base3": "classic",
+        "base4": "coco",
+        "icing": "coco"
+      },
       "price": 4.99,
       "category": 0,
       "description": "True enlightenment is but a sip away with this classic bubble tea. Black tea is shaken together with frothy milk and crushed ice poured over scrumptious caramelized tapioca pearls.",
@@ -76,7 +82,13 @@
     {
       "id": "2",
       "name": "Cheesey Bliss",
-      "color": ["cheese"],
+      "ingredients": {
+        "base1": "cheese",
+        "base2": "milk",
+        "base3": "milk",
+        "base4": "milk",
+        "icing": "passionfruit"
+      },
       "price": 5.69,
       "category": 3,
       "description": "Experience Cheese Nirvana. This delicious beverage is crowned with a tangy cheese cream.",
@@ -97,7 +109,13 @@
     {
       "id": "3",
       "name": "Light of the Lychee",
-      "color": ["lychee"],
+      "ingredients": {
+        "base1": "milk",
+        "base2": "lychee",
+        "base3": "lychee",
+        "base4": "lychee",
+        "icing": "lychee"
+      },
       "price": 5.49,
       "category": 2,
       "description": "Lose yourself in the delicate sweetness of fresh lychee.",
@@ -118,7 +136,13 @@
     {
       "id": "4",
       "name": "Watermelon Splash",
-      "color": ["watermelon"],
+      "ingredients": {
+        "icing": "watermelonDeep",
+        "base1": "watermelon",
+        "base2": "caramel",
+        "base3": "milk",
+        "base4": "coco"
+      },
       "price": 5.49,
       "category": 2,
       "description": "Refresh your body and mind with a hit of watermelon.",
@@ -139,7 +163,13 @@
     {
       "id": "5",
       "name": "Jasmine Milk Pearl",
-      "color": ["jasmine"],
+      "ingredients": {
+        "icing": "jasmine",
+        "base1": "milk",
+        "base2": "jasmine",
+        "base3": "jasmine",
+        "base4": "jasmine"
+      },
       "price": 5.29,
       "category": 1,
       "description": "A firm favourite. Experience the heady scent and taste of jasmine bathed in milk.",
@@ -160,7 +190,13 @@
     {
       "id": "6",
       "name": "Matcha Heaven",
-      "color": ["matcha"],
+      "ingredients": {
+        "icing": "matcha",
+        "base1": "milk",
+        "base2": "matcha",
+        "base3": "matcha",
+        "base4": "matchaDeep"
+      },
       "price": 5.29,
       "category": 1,
       "description": "Take time to savour the unique flavour of matcha.",
@@ -181,7 +217,13 @@
     {
       "id": "7",
       "name": "Rainbow Lotus",
-      "color": ["watermelonDeep"],
+      "ingredients": {
+        "icing": "sakura",
+        "base1": "strawberry",
+        "base2": "milk",
+        "base3": "classic",
+        "base4": "caramel"
+      },
       "price": 5.99,
       "category": 4,
       "description": "A colourful blend of real fruit juice and crushed ice will help guide you on your path to enlightenment.",

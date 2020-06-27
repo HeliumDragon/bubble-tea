@@ -1,17 +1,19 @@
 export default {
-  caramel: '#fcb737',
-  chocolate: '#452100',
+  milk: '#fff',
   coconut: '#ffe',
-  passionfruit: '#ffc276',
-  strawberry: '#ff84a5',
-  classic: '#e1b18c',
-  cheese: '#fcb737',
+  jasmine: '#FFF8DC',
+  passionfruit: '#FEDC62',
+  classic: '#FFC175',
+  cheese: '#FCB737',
+  caramel: '#F49C2C',
+  coco: '#452200',
   lychee: '#ffc4b5',
+  sakura: '#FFB5C8',
   watermelon: '#fe6b46',
+  strawberry: '#ff84a5',
   watermelonDeep: '#ff2010',
-  Jasmine: '#FFF8DC',
   matcha: '#c3ce42',
-  deepMatch: '#757e0c'
+  matchaDeep: '#767E0E'
 };
 // <div>
 //   <button

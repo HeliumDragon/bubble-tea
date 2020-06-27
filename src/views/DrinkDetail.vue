@@ -2,15 +2,17 @@
   <div class="grid grid-cols-5 gap-6">
     <div class="drink-card" v-for="item in drinks" :key="item.id">
       <BubbleTeaDisplay
-        :base2="getColor(item)"
-        :base3="getColor(item)"
-        base1="#eee"
-        base4="#cae"
-        :icing="colorCodes.watermelonDeep"
+        :base1="getColor(item, 'base1')"
+        :base2="getColor(item, 'base2')"
+        :base3="getColor(item, 'base3')"
+        :base4="getColor(item, 'base4')"
+        :icing="getColor(item, 'icing')"
+        boba1="#000"
+        boba2="#000"
         :showStraw="false"
       >
       </BubbleTeaDisplay>
-      <img :src="getImagePath(item.productImageFile)" :alt="img" />
+      <!-- <img :src="getImagePath(item.productImageFile)" alt="img" /> -->
       <div class="text-sm font-mono font-semibold">{{ item.name }}</div>
       <div class="text-sm font-mono font-semibold">{{ item.color }}</div>
     </div>
@@ -42,8 +44,8 @@ export default {
       }
       return require.context('@/assets/full', false, /\.svg$/)(`./${fileName}`);
     },
-    getColor(drink) {
-      return colorCodes[drink.color[0]];
+    getColor(drink, prop) {
+      return colorCodes[drink.ingredients[prop]];
     }
   }
 };
