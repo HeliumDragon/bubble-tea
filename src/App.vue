@@ -4,6 +4,7 @@
       <router-link to="/">Home</router-link>&nbsp;|
       <router-link to="/cart">Cart</router-link>
     </div>
+
     <router-view />
   </div>
 </template>

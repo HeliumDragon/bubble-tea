@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import BubbleTeaDisplay from '../components/bubble-tea-display';
+import BubbleTeaDisplay from '../components/BubbleTeaDisplay';
 import { colorCodes } from '../data/ingredient-colors';
 
 export default {

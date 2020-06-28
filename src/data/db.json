@@ -85,7 +85,7 @@
       "allergenTag": [1, 3],
       "awardTag": [],
       "options": {
-        "size": "regular",
+        "size": "Regular",
         "temperature": "50PercentIce",
         "sugarLevel": "RegularSugar",
         "toppings": ["Pearl"]
@@ -112,7 +112,7 @@
       "allergenTag": [1, 3],
       "awardTag": [],
       "options": {
-        "size": "regular",
+        "size": "Regular",
         "temperature": "50PercentIce",
         "sugarLevel": "RegularSugar",
         "toppings": []
@@ -139,7 +139,7 @@
       "allergenTag": [1],
       "awardTag": [],
       "options": {
-        "size": "regular",
+        "size": "Regular",
         "temperature": "50PercentIce",
         "sugarLevel": "RegularSugar",
         "toppings": ["Pearl"]
@@ -166,7 +166,7 @@
       "allergenTag": [1],
       "awardTag": [],
       "options": {
-        "size": "regular",
+        "size": "Regular",
         "temperature": "50PercentIce",
         "sugarLevel": "RegularSugar",
         "toppings": []
@@ -193,7 +193,7 @@
       "allergenTag": [1, 3],
       "awardTag": [],
       "options": {
-        "size": "regular",
+        "size": "Regular",
         "temperature": "50PercentIce",
         "sugarLevel": "RegularSugar",
         "toppings": ["Pearl"]
@@ -220,7 +220,7 @@
       "allergenTag": [1, 3],
       "awardTag": [],
       "options": {
-        "size": "regular",
+        "size": "Regular",
         "temperature": "50PercentIce",
         "sugarLevel": "RegularSugar",
         "toppings": ["Pearl"]
@@ -247,7 +247,7 @@
       "allergenTag": [1],
       "awardTag": [],
       "options": {
-        "size": "regular",
+        "size": "Regular",
         "temperature": "100PercentIce",
         "sugarLevel": "RegularSugar",
         "toppings": []
