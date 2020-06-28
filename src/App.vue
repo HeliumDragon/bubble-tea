@@ -42,4 +42,16 @@
 .fade-leave-active {
   transition: opacity 0.5s ease-out;
 }
+
+.list-item {
+  transition: all 1s;
+}
+.list-enter,
+.list-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+.list-leave-active {
+  position: absolute;
+}
 </style>

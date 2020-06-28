@@ -3,21 +3,13 @@
     <div class="flex flex-col text-center">
       <p class="mt-2 font-semibold text-2xl">{{tea.name}}</p>
       <p class="mt-1 font-semibold">£{{unitPrice}}</p>
-      <p class="mt-1 text-gray-700">{{tea.description}}</p>
+      <p
+        class="mt-1 text-gray-700"
+        :class="{ '-mb-6': selectedSize !== 'Regular', '-mb-10': selectedSize === 'Regular'}"
+      >{{tea.description}}</p>
 
-      <div
-        id="ingredients"
-        class="mt-6"
-        :class="{ '-mb-6':  selectedSize !== 'Regular', '-mb-10': selectedSize === 'Regular'}"
-      >
-        <span
-          v-for="val in  Array.from(new Set(Object.values(ingredients))).filter(a => !!a && a !== 'black')"
-          class="px-2 py-1 text-sm font-semibold tracking-tight text-white mr-2 rounded shadow-md"
-          :style="{'background':colorCodes[val], 'color': colorTextCodes[val]}"
-          :key="val"
-        >{{ val }}</span>
-      </div>
       <BubbleTeaDisplay
+        id="display"
         class="w-1/3 -mt-48 m-auto mb-0"
         :class="{'w-2/5':  selectedSize !== 'Regular', '-mt-64':  selectedSize !== 'Regular'}"
         :base1="getColor('base1')"
@@ -32,6 +24,14 @@
         :showIcing="!!this.selectedIcing"
         :showBoba="!!this.selectedBoba"
       ></BubbleTeaDisplay>
+      <transition-group name="list" appear id="ingredients" tag="div" class="mt-6">
+        <span
+          v-for="val in labels"
+          class="list-item px-2 py-1 text-sm font-semibold tracking-tight text-white mr-2 rounded shadow-md"
+          :style="{'background':colorCodes[val], 'color': colorTextCodes[val]}"
+          :key="val"
+        >{{ val }}</span>
+      </transition-group>
     </div>
     <div class="gr">
       <h2 class="text-4xl mb-4">Customise Your Tea!</h2>
@@ -78,6 +78,11 @@ export default {
     unitPrice() {
       const sizeExtra = this.selectedSize === 'Large' ? 0.3 : 0;
       return +(this.tea.price + sizeExtra).toFixed(2);
+    },
+    labels() {
+      return Array.from(new Set(Object.values(this.ingredients)))
+        .filter(a => !!a && a !== 'black')
+        .sort();
     },
     ingredients() {
       const ingredients = this.tea.ingredients;
@@ -166,4 +171,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+#display {
+  transition-property: width;
+}
+</style>

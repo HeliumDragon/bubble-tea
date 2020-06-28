@@ -6,7 +6,7 @@
       <div
         v-for="tea in teas"
         v-bind:key="tea.id"
-        class="mb-4 p-4 shadow-lg hover:shadow-md cursor-pointer"
+        class="mb-4 p-4 shadow-lg hover:shadow-md transition-shadow duration-500 ease-out cursor-pointer"
       >
         <router-link :to="{ name: 'Customise', params: { id: tea.id } }">
           <div class="flex flex-col items-center">
