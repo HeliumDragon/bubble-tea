@@ -49,7 +49,7 @@
 <script>
 import CustomiseForm from '../components/Customise-Form';
 import httpService from '../services/http-service';
-import BubbleTeaDisplay from '../components/bubble-tea-display';
+import BubbleTeaDisplay from '../components/BubbleTeaDisplay';
 import { colorCodes, colorTextCodes } from '../data/ingredient-colors';
 
 export default {
@@ -81,6 +81,7 @@ export default {
     },
     ingredients() {
       const ingredients = this.tea.ingredients;
+
       const icing = this.selectedIcing ? this.selectedIcing.name : null;
       let boba1 = null,
         boba2 = null;
@@ -88,6 +89,7 @@ export default {
         boba1 = this.selectedBoba.color[0];
         boba2 = this.selectedBoba.color[1] || boba1;
       }
+
       return {
         ...ingredients,
         boba1,

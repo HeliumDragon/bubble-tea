@@ -11,7 +11,6 @@
         boba2="#000"
         :showStraw="false"
       ></BubbleTeaDisplay>
-      <!-- <img :src="getImagePath(item.productImageFile)" alt="img" /> -->
       <div class="text-sm font-mono font-semibold">{{ item.name }}</div>
       <div class="text-sm font-mono font-semibold">{{ item.color }}</div>
     </div>
@@ -19,7 +18,7 @@
 </template>
 
 <script>
-import BubbleTeaDisplay from '../components/bubble-tea-display';
+import BubbleTeaDisplay from '../components/BubbleTeaDisplay';
 import httpService from '../services/http-service';
 import { colorCodes } from '../data/ingredient-colors';
 export default {
@@ -37,12 +36,6 @@ export default {
     this.drinks = data;
   },
   methods: {
-    getImagePath: function(fileName) {
-      if (!fileName) {
-        return;
-      }
-      return require.context('@/assets/full', false, /\.svg$/)(`./${fileName}`);
-    },
     getColor(drink, prop) {
       return colorCodes[drink.ingredients[prop]];
     }
