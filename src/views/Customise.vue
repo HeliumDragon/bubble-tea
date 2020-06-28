@@ -24,7 +24,7 @@
         :showIcing="!!this.selectedIcing"
         :showBoba="!!this.selectedBoba"
       ></BubbleTeaDisplay>
-      <transition-group name="list" appear id="ingredients" tag="div" class="mt-6">
+      <transition-group id="ingredients" class="mt-6" name="list" appear tag="div">
         <span
           v-for="val in labels"
           class="list-item px-2 py-1 text-sm font-semibold tracking-tight text-white mr-2 rounded shadow-md"
