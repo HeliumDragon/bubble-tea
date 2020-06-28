@@ -1,12 +1,8 @@
 <template>
   <section class="hero">
-    <img
-      class="brand-logo mb-32"
-      src="@/assets/brand.svg"
-      alt="buddha tea brand logo"
-    />
+    <img class="brand-logo mb-32" src="@/assets/brand.svg" alt="buddha tea brand logo" />
 
-    <button>Seek Tea Enlightenment</button>
+    <button @click="$emit('scrollTo')">Seek Tea Enlightenment</button>
   </section>
 </template>
 
@@ -54,7 +50,8 @@ button:hover {
   background: #ff6bbc;
 }
 button:focus {
-  outline: 1px solid #000;
-  outline-offset: -1px;
+  outline: none;
+  border: 2px #fc48ab solid;
+  border-radius: 25px;
 }
 </style>

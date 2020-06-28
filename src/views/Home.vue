@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Hero />
+    <Hero v-on:scrollTo="scrollTo" />
     <Shop :teas="teas" />
   </div>
 </template>
@@ -20,6 +20,15 @@ export default {
   components: {
     Hero,
     Shop
+  },
+  methods: {
+    scrollTo() {
+      const el = document.querySelector('.shop');
+
+      console.log(el);
+
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
   },
   created() {
     httpService.get('teas/').then(data => (this.teas = data));
