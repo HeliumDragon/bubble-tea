@@ -134,10 +134,25 @@ export default {
       }
     },
     async confirm() {
+      const ingredientsBoba1 = this.ingredients.boba1;
+      const ingredientsBoba2 = this.ingredients.boba2;
+
+      const cartIngredients = {
+        base1: this.ingredients.base1,
+        base2: this.ingredients.base2,
+        base3: this.ingredients.base3,
+        base4: this.ingredients.base4,
+        icing: this.ingredients.icing,
+        bobas:
+          ingredientsBoba1 === ingredientsBoba2
+            ? [ingredientsBoba1]
+            : [ingredientsBoba1, ingredientsBoba2]
+      };
+
       const selectedTea = {
         base: this.tea,
         size: this.selectedSize,
-        ingredients: this.ingredients,
+        ingredients: cartIngredients,
         quantity: 1,
         unitPrice: this.unitPrice
       };
@@ -146,7 +161,7 @@ export default {
 
       localStorage.setItem('chosenTeas', JSON.stringify(selectedTea));
 
-      this.$router.replace('/');
+      this.$router.replace('/cart');
     },
     remove() {
       this.selectedIcing = null;
