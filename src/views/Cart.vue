@@ -9,7 +9,7 @@
           v-for="item in cart"
           :key="item.id"
         >
-          <div class="h-24 sm:h-32 flex flex-col self-center">
+          <div class="-mt-8 h-24 sm:h-32 hidden md:flex flex-col">
             <BubbleTeaDisplay
               :base1="getColor(item, 'base1')"
               :base2="getColor(item, 'base2')"
@@ -18,11 +18,15 @@
               :icing="getColor(item, 'icing')"
               :boba1="getColor(item, 'bobas', 0)"
               :boba2="getColor(item, 'bobas', 1)"
+              :showStraw="false"
             ></BubbleTeaDisplay>
           </div>
-          <h2
-            class="flex justify-center items-center w-full text-base sm:font-bold"
-          >{{ item.base.name }}</h2>
+
+          <div class="flex flex-col justify-center items-center w-full">
+            <h2 class="text-base font-bold">{{ item.base.name }}</h2>
+            <hr />
+            <p>{{item.unitPrice}}</p>
+          </div>
 
           <div class="flex flex-col justify-center items-center">
             <div>
@@ -32,27 +36,19 @@
             </div>
           </div>
 
-          <div class="hidden md:flex md:flex-col justify-center items-center">
-            <div v-if="item.ingredients.bobas">
-              <h4 class="font-bold text-base">Bobas</h4>
-              <hr />
-              <ul class="mt-2">
-                <li
-                  class="capitalize inline-block"
-                  :class="{'mr-1': index !== item.ingredients.bobas.length - 1}"
-                  v-for="(boba, index) in item.ingredients.bobas"
-                  :key="boba"
-                >
-                  {{boba}}
-                  <span v-if="index !== item.ingredients.bobas.length - 1">|</span>
-                </li>
-              </ul>
-            </div>
-            <div class="ml-4 md:ml-0" v-if="item.ingredients.icing">
-              <h4 class="font-bold text-base">Icing</h4>
-              <hr />
-              <p class="mt-2 capitalize">{{ item.ingredients.icing }}</p>
-            </div>
+          <div class="flex flex-col justify-center items-center">
+            <h3 class="font-bold text-base md:text-xl">Quantity</h3>
+            <hr />
+            <input
+              class="text-center border p-2 w-3/5 focus:outline-none focus:shadow-outline"
+              type="number"
+              name="quantity"
+              id="quantity"
+              min="1"
+              max="9"
+              @input="handleItemQuantity(item)"
+              v-model.number="item.quantity"
+            />
           </div>
 
           <div class="flex justify-center items-center">
@@ -74,6 +70,12 @@
           <span class="text-lg">({{ totalItemsText }})</span>
         </h3>
         <p class="font-bold text-lg">{{ totalPrice }}</p>
+
+        <button
+          v-if="cart.length"
+          @click="order"
+          class="font-bold text-base focus:outline-none focus:shadow-outline rounded-lg mt-2 p-2"
+        >Order</button>
       </div>
     </div>
   </section>
@@ -103,20 +105,47 @@ export default {
 
       return colorCodes[ingredient];
     },
+    handleItemQuantity(item) {
+      this.cart = this.cart.map(cItem => {
+        if (cItem.id === item.id) {
+          cItem.quantity = this.roundedQuantity(item.quantity);
+        }
+
+        return cItem;
+      });
+    },
+    roundedQuantity(quantity) {
+      return Math.round(quantity);
+    },
+    order() {
+      console.log(this.cart);
+    },
     async removeFromCart(cartItemId) {
       await httpService.delete(`cart/${cartItemId}`);
       this.cart = this.cart.filter(item => item.id !== cartItemId);
     }
   },
   computed: {
+    totalOfCartItemQuantities() {
+      return this.cart.reduce((prev, current) => {
+        if (typeof current.quantity !== 'number') {
+          return prev;
+        }
+        return (prev += this.roundedQuantity(current.quantity));
+      }, 0);
+    },
     totalItemsText() {
       const numberOfCartItems = this.cart.length;
-      return `${numberOfCartItems} item${numberOfCartItems !== 1 ? 's' : ''}`;
+
+      return `${this.totalOfCartItemQuantities} item${
+        numberOfCartItems !== 1 ? 's' : ''
+      }`;
     },
     totalPrice() {
       return this.cart
         .reduce((prev, current) => {
-          return (prev += current.unitPrice);
+          return (prev +=
+            current.unitPrice * this.roundedQuantity(current.quantity));
         }, 0)
         .toFixed(2);
     }
