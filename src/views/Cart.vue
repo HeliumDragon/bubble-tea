@@ -11,16 +11,8 @@
           @input="handleItemQuantity(item)"
           v-on:remove-item="removeFromCart(item.id)"
         >
-          <BubbleTeaDisplay
-            :base1="getColor(item, 'base1')"
-            :base2="getColor(item, 'base2')"
-            :base3="getColor(item, 'base3')"
-            :base4="getColor(item, 'base4')"
-            :icing="getColor(item, 'icing')"
-            :boba1="getColor(item, 'bobas', 0)"
-            :boba2="getColor(item, 'bobas', 1)"
-            :showStraw="false"
-          ></BubbleTeaDisplay>
+          <!-- using v-bind here spreads out the properties of an object-->
+          <BubbleTeaDisplay v-bind="item.ingredients" :showStraw="false"></BubbleTeaDisplay>
         </CartItem>
       </div>
 
@@ -47,7 +39,6 @@
 import BubbleTeaDisplay from '../components/BubbleTeaDisplay';
 import CartItem from '../components/CartItem';
 import httpService from '../services/http-service';
-import { colorCodes } from '../data/ingredient-colors';
 
 export default {
   data() {
@@ -60,15 +51,6 @@ export default {
     CartItem
   },
   methods: {
-    getColor(drink, prop, index) {
-      let ingredient = drink.ingredients[prop];
-
-      if (index !== undefined) {
-        ingredient = ingredient[index];
-      }
-
-      return colorCodes[ingredient];
-    },
     handleItemQuantity(item) {
       this.cart = this.cart.map(cItem => {
         if (cItem.id === item.id) {

@@ -7,18 +7,12 @@
         class="mt-1 text-gray-700"
         :class="{ '-mb-6': selectedSize !== 'Regular', '-mb-10': selectedSize === 'Regular'}"
       >{{tea.description}}</p>
-
+      <!-- using v-bind here spreads out the properties of an object-->
       <BubbleTeaDisplay
         id="display"
         class="w-1/3 -mt-48 m-auto mb-0"
         :class="{'w-2/5':  selectedSize !== 'Regular', '-mt-64':  selectedSize !== 'Regular'}"
-        :base1="getColor('base1')"
-        :base2="getColor('base2')"
-        :base3="getColor('base3')"
-        :base4="getColor('base4')"
-        :icing="getColor('icing')"
-        :boba1="getColor('boba1')"
-        :boba2="getColor('boba2')"
+        v-bind="ingredients"
         :showStraw="false"
         :showLid="false"
         :showIcing="!!this.selectedIcing"
@@ -51,7 +45,6 @@ import CustomiseForm from '../components/Customise-Form';
 import httpService from '../services/http-service';
 import BubbleTeaDisplay from '../components/BubbleTeaDisplay';
 import { colorCodes, colorTextCodes } from '../data/ingredient-colors';
-
 export default {
   data() {
     return {
@@ -59,10 +52,10 @@ export default {
       selectedSize: 'Regular',
       selectedIcing: null,
       selectedBoba: null,
-      icings: [],
-      bobas: [],
+      colorTextCodes,
       colorCodes,
-      colorTextCodes
+      icings: [],
+      bobas: []
     };
   },
   components: {
@@ -75,6 +68,22 @@ export default {
     }
   },
   computed: {
+    ingredients() {
+      const ingredients = this.tea.ingredients;
+      const icing = this.selectedIcing ? this.selectedIcing.name : null;
+      let boba1 = 'black',
+        boba2 = 'black';
+      if (this.selectedBoba) {
+        boba1 = this.selectedBoba.color[0];
+        boba2 = this.selectedBoba.color[1] || boba1;
+      }
+      return {
+        ...ingredients,
+        boba1,
+        boba2,
+        icing
+      };
+    },
     unitPrice() {
       const sizeExtra = this.selectedSize === 'Large' ? 0.3 : 0;
       return +(this.tea.price + sizeExtra).toFixed(2);
@@ -83,30 +92,9 @@ export default {
       return Array.from(new Set(Object.values(this.ingredients)))
         .filter(a => !!a && a !== 'black')
         .sort();
-    },
-    ingredients() {
-      const ingredients = this.tea.ingredients;
-
-      const icing = this.selectedIcing ? this.selectedIcing.name : null;
-      let boba1 = null,
-        boba2 = null;
-      if (this.selectedBoba) {
-        boba1 = this.selectedBoba.color[0];
-        boba2 = this.selectedBoba.color[1] || boba1;
-      }
-
-      return {
-        ...ingredients,
-        boba1,
-        boba2,
-        icing
-      };
     }
   },
   methods: {
-    getColor(prop) {
-      return colorCodes[this.ingredients[prop]];
-    },
     handleCustomise(event) {
       const [eventType, item] = event;
 
